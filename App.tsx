@@ -11,12 +11,12 @@ import {
 // Lazy load non-critical components
 const MainContent = lazy(() => import('./components/MainContent'));
 
-// Optimized Skeleton
+// Optimized Skeleton for MainContent
 const StatsSkeleton = () => (
-  <div className="bg-slate-900 py-16 px-4 md:py-24 border-b border-slate-800" aria-hidden="true">
+  <div className="bg-slate-900 py-16 px-4 md:py-24 border-b border-slate-800 w-full" aria-hidden="true">
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
        <div className="space-y-8">
-          <div className="h-12 bg-slate-800 rounded w-3/4"></div>
+          <div className="h-12 bg-slate-800 rounded w-3/4 animate-pulse"></div>
           <div className="space-y-6">
              {[1, 2, 3].map(i => (
                 <div key={i} className="flex gap-4 p-4 bg-slate-800 rounded-xl border-l-4 border-slate-700">
@@ -37,7 +37,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800 overflow-x-hidden bg-brand-900">
       
-      {/* Header - Critical Inline CSS handles the green background immediately */}
+      {/* Header - Critical */}
       <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 text-sm md:text-base font-semibold truncate">
@@ -60,7 +60,7 @@ const App: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Text Content */}
-          <div className="space-y-6 animate-fade-in-up order-2 md:order-1">
+          <div className="space-y-6 order-2 md:order-1">
             <span className="inline-block bg-brand-700 text-brand-100 px-4 py-2 rounded-full text-sm font-bold tracking-wide uppercase">
               Especialista em AVC
             </span>
@@ -94,19 +94,19 @@ const App: React.FC = () => {
 
           {/* Hero Image - LCP OPTIMIZED */}
           <div className="relative mt-4 md:mt-0 order-1 md:order-2 w-full flex justify-center md:justify-end">
-             {/* Aspect Ratio Container to prevent CLS */}
-            <div className="relative w-[280px] md:w-[400px] lg:w-[450px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
+             {/* Aspect Ratio Container EXACTLY matching HTML Shell */}
+            <div className="relative w-[280px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
                 alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
                 className="w-full h-full object-cover"
-                width="600"
-                height="800"
+                width="400"
+                height="533"
                 loading="eager"
                 decoding="sync"
                 // @ts-ignore
                 fetchPriority="high"
-                sizes="(max-width: 768px) 280px, (max-width: 1024px) 400px, 450px"
+                sizes="(max-width: 768px) 280px, 400px"
               />
             </div>
           </div>
