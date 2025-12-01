@@ -40,7 +40,7 @@ const VideoCard: React.FC<{ videoId: string; title: string; description: string 
             {/* Thumbnail Image */}
             <img 
               src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} 
-              alt={title}
+              alt={`Vídeo de Fisioterapia: ${title}`}
               className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity"
               width="320"
               height="570"
@@ -177,7 +177,7 @@ const App: React.FC = () => {
             <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 max-w-[80%] mx-auto md:max-w-full">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
-                alt="Fisioterapeuta Izabel Macedo" 
+                alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
                 className="w-full h-auto object-cover"
                 width="600"
                 height="800"
@@ -338,7 +338,7 @@ const App: React.FC = () => {
           <div className="order-2 lg:order-1">
             <img 
               src="https://picsum.photos/seed/grandparent_hug/600/400" 
-              alt="Família feliz com idoso" 
+              alt="Família feliz com paciente em recuperação em São José dos Campos" 
               className="rounded-2xl shadow-xl w-full"
               loading="lazy"
               width="600"
@@ -461,7 +461,7 @@ const App: React.FC = () => {
             <div className="relative max-w-sm mx-auto">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-10.webp" 
-                alt="Foto de Izabel Macedo" 
+                alt="Fisioterapeuta Izabel Macedo - Atendimento domiciliar em SJC" 
                 className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
                 loading="lazy"
                 width="400"
