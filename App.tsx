@@ -44,6 +44,10 @@ const VideoCard: React.FC<{ videoId: string; title: string; description: string 
               className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity"
               width="320"
               height="570"
+              loading="lazy"
+              decoding="async"
+              // @ts-ignore
+              fetchPriority="low"
             />
             {/* Play Button Overlay */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -182,6 +186,8 @@ const App: React.FC = () => {
                 width="600"
                 height="800"
                 loading="eager"
+                decoding="sync"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 // @ts-ignore
                 fetchPriority="high"
               />
@@ -337,8 +343,8 @@ const App: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <img 
-              src="https://picsum.photos/seed/grandparent_hug/600/400" 
-              alt="Família feliz com paciente em recuperação em São José dos Campos" 
+              src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" 
+              alt="Atendimento de Fisioterapia Domiciliar com paciente em recuperação em São José dos Campos" 
               className="rounded-2xl shadow-xl w-full"
               loading="lazy"
               width="600"
