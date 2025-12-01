@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Section } from './components/Section';
 import { Button } from './components/Button';
-import { WhatsAppBubble } from './components/WhatsAppBubble';
 import { 
   CheckCircle2, 
   MapPin, 
@@ -20,7 +19,9 @@ import {
   AlertTriangle,
   Timer,
   TrendingUp,
-  PlayCircle
+  PlayCircle,
+  Instagram,
+  Youtube
 } from 'lucide-react';
 import { FAQItem, ComparisonRow } from './types';
 
@@ -48,14 +49,14 @@ const App: React.FC = () => {
   const comparisonData: ComparisonRow[] = [
     { feature: "Atendimento", izabel: "Personalizado e humanizado", clinic: "Genérico e impessoal" },
     { feature: "Local", izabel: "No conforto do seu lar", clinic: "Deslocamento necessário" },
-    { feature: "Tempo de sessão", izabel: "Até 1h30 de dedicação", clinic: "20 a 40 minutos" },
+    { feature: "Tempo de atendimento", izabel: "Até 1h30 de dedicação", clinic: "20 a 40 minutos" },
     { feature: "Especialização", izabel: "Neurológica (AVC Especializada)", clinic: "Clínica Geral / Rotativa" },
     { feature: "Equipamentos", izabel: "Leva todos necessários", clinic: "Limitado ao box" },
     { feature: "Acompanhamento", izabel: "Relatório mensal detalhado", clinic: "Sem acompanhamento individual" },
   ];
 
   const faqs: FAQItem[] = [
-    { question: "Quantas sessões são necessárias?", answer: "Geralmente recomendamos entre 10 a 20 sessões para começar a ver uma evolução consistente, mas cada caso neurológico é único e depende da avaliação inicial." },
+    { question: "Quantas consultas são necessárias?", answer: "Geralmente recomendamos entre 10 a 20 atendimentos para começar a ver uma evolução consistente, mas cada caso neurológico é único e depende da avaliação inicial." },
     { question: "Como funciona a primeira consulta?", answer: "É realizada uma avaliação detalhada no seu domicílio para entender o histórico, as limitações atuais e traçar um plano de reabilitação personalizado." },
     { question: "Vocês atendem em qualquer bairro?", answer: "Atendemos a maior parte de São José dos Campos. Recomendamos clicar no botão de WhatsApp para confirmar se sua região está dentro da área de cobertura." },
   ];
@@ -71,7 +72,7 @@ const App: React.FC = () => {
             <span className="truncate">Atendimento Domiciliar em São José dos Campos</span>
           </div>
           <a 
-            href="https://wa.me/5512999999999"
+            href="https://wa.me/5512992186161"
             target="_blank"
             rel="noreferrer"
             className="hidden md:flex items-center gap-2 bg-brand-600 hover:bg-brand-500 px-4 py-1.5 rounded-full text-sm font-bold transition-colors shrink-0"
@@ -84,7 +85,7 @@ const App: React.FC = () => {
       {/* Hero Section */}
       <Section bg="brand" className="pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in-up">
+          <div className="space-y-8 animate-fade-in-up order-2 md:order-1">
             <span className="inline-block bg-brand-700 text-brand-100 px-4 py-2 rounded-full text-sm font-bold tracking-wide uppercase">
               Especialista em AVC
             </span>
@@ -121,13 +122,13 @@ const App: React.FC = () => {
               </Button>
             </div>
           </div>
-          <div className="relative mt-8 md:mt-0">
-             {/* Abstract image representation of care/physio */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500">
+          <div className="relative mt-8 md:mt-0 order-1 md:order-2">
+             {/* Profile Image Hero */}
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 max-w-[80%] mx-auto md:max-w-full">
               <img 
-                src="https://picsum.photos/seed/physio_elderly/600/700" 
-                alt="Fisioterapeuta atendendo idoso em casa" 
-                className="w-full h-auto object-cover max-h-[400px] md:max-h-full"
+                src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
+                alt="Fisioterapeuta Izabel Macedo" 
+                className="w-full h-auto object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6">
                 <p className="text-white font-bold text-lg">Reabilitação no conforto do lar</p>
@@ -374,64 +375,73 @@ const App: React.FC = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Video Placeholder */}
-          <div className="bg-black/20 p-4 rounded-3xl backdrop-blur-sm">
-             <div className="aspect-[9/16] bg-slate-800 rounded-2xl flex items-center justify-center relative overflow-hidden group cursor-pointer shadow-2xl border border-slate-700">
-                {/* Simulated Youtube Shorts Interface */}
-                <img src="https://picsum.photos/seed/video_thumb/400/700" alt="Thumbnail Vídeo Evolução" className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"/>
-                <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="bg-red-600 text-white p-6 rounded-full shadow-2xl transform group-hover:scale-110 transition-transform">
-                      <Play size={48} fill="white" />
-                   </div>
-                </div>
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                   <p className="font-bold text-xl mb-1">Evolução Incrível</p>
-                   <p className="text-sm opacity-90">Paciente retomando a marcha após 3 meses.</p>
-                </div>
-             </div>
-             <p className="text-center text-white mt-4 font-medium opacity-80">Assista à evolução real de pacientes</p>
-          </div>
-
-          {/* WhatsApp Prints */}
-          <div className="space-y-6">
-            <WhatsAppBubble 
-              name="Mariana (Filha do Sr. João)"
-              message="Izabel, você não acredita! Meu pai conseguiu segurar o copo sozinho hoje no almoço. Estamos chorando de alegria aqui. Obrigada por não desistir dele!"
-              time="14:32"
-            />
-            <WhatsAppBubble 
-              name="Roberto (Esposo da Ana)"
-              message="A melhora da Ana nessas últimas 10 sessões foi maior do que em 6 meses na clínica. O carinho que você tem faz toda diferença."
-              time="09:15"
-            />
-            <WhatsAppBubble 
-              name="Carla (Neta da D. Lurdes)"
-              message="Ela já está querendo levantar sozinha da cama rsrs. Sua paciência é um dom. Obrigada por devolver o sorriso da minha vó."
-              time="18:40"
-            />
-            <div className="pt-8 text-center">
-              <Button variant="whatsapp" icon="whatsapp" className="bg-white text-brand-900 hover:bg-gray-100 w-full md:w-auto">
-                Recuperar autonomia do meu Familiar
-              </Button>
+          
+          {/* Video 1 */}
+          <div className="space-y-4">
+            <div className="aspect-[9/16] max-w-sm mx-auto w-full bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-brand-700">
+               <iframe 
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/J5gYAHgFtoI" 
+                  title="Terapia com Dança e Afeto" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
+            </div>
+            <div className="text-center md:text-left max-w-sm mx-auto">
+               <h4 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
+                 <PlayCircle className="text-brand-300" /> Terapia com Dança e Afeto
+               </h4>
+               <p className="text-brand-100 text-sm leading-relaxed">
+                  A reabilitação vai muito além dos exercícios tradicionais! Incluímos a dança (forró) com o filho para trazer memórias afetivas e alegria ao tratamento.
+               </p>
             </div>
           </div>
+
+          {/* Video 2 */}
+          <div className="space-y-4">
+            <div className="aspect-[9/16] max-w-sm mx-auto w-full bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-brand-700">
+                <iframe 
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/_BYMV8tNgcc" 
+                  title="Superação pós-AVC aos 54 anos" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
+            </div>
+            <div className="text-center md:text-left max-w-sm mx-auto">
+               <h4 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
+                 <PlayCircle className="text-brand-300" /> Superação pós-AVC
+               </h4>
+               <p className="text-brand-100 text-sm leading-relaxed">
+                  De desafios a conquistas: veja como a fisioterapia ajudou nossa paciente a reescrever sua história e reencontrar a independência.
+               </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="pt-16 text-center">
+            <Button variant="whatsapp" icon="whatsapp" className="bg-white text-brand-900 hover:bg-gray-100 w-full md:w-auto shadow-lg">
+              Recuperar autonomia do meu Familiar
+            </Button>
         </div>
       </Section>
 
       {/* About Izabel */}
       <Section bg="light">
         <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/2 lg:w-1/3">
             <div className="relative max-w-sm mx-auto">
-              <div className="absolute inset-0 bg-brand-200 rounded-full transform translate-x-4 translate-y-4"></div>
               <img 
-                src="https://picsum.photos/seed/izabel_profile/400/400" 
+                src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-10.webp" 
                 alt="Foto de Izabel Macedo" 
-                className="rounded-full w-full border-8 border-white shadow-2xl relative z-10"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
               />
             </div>
           </div>
-          <div className="w-full md:w-2/3 space-y-6">
+          <div className="w-full md:w-1/2 lg:w-2/3 space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold text-brand-900">Sobre a Izabel</h2>
             <p className="text-base md:text-lg leading-relaxed text-slate-700">
               Izabel Macedo é fisioterapeuta, professora de pilates e massoterapeuta desde 2017. Mãe do Matteo e da Laura, casada com Vitor, ela traz para seus atendimentos a sensibilidade de quem entende o valor da família.
@@ -440,7 +450,7 @@ const App: React.FC = () => {
               Apaixonada por <strong>reabilitação neurológica</strong>, ela acredita que cada progresso, por menor que seja, é uma grande vitória.
             </p>
             <div className="bg-white p-6 rounded-xl border-l-4 border-brand-500 shadow-sm italic text-slate-600">
-              "Eu não entrego 'só mais uma sessão'. Eu entrego esperança, movimento e dignidade, com tratamento humano, técnico e personalizado."
+              "Eu não entrego 'só mais uma consulta'. Eu entrego esperança, movimento e dignidade, com tratamento humano, técnico e personalizado."
             </div>
           </div>
         </div>
@@ -458,7 +468,7 @@ const App: React.FC = () => {
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 hover:border-brand-300 transition-colors flex flex-col">
             <h3 className="text-xl font-bold text-slate-700 mb-2">Consulta Avulsa</h3>
             <div className="text-3xl md:text-4xl font-extrabold text-brand-900 mb-6">
-              R$ 250 <span className="text-sm font-normal text-slate-500">/sessão</span>
+              R$ 200 <span className="text-sm font-normal text-slate-500">/consulta</span>
             </div>
             <ul className="space-y-4 mb-8 flex-grow">
               <li className="flex gap-2 items-center text-slate-600"><CheckCircle2 size={18} className="text-brand-500"/> Avaliação completa</li>
@@ -473,17 +483,17 @@ const App: React.FC = () => {
           {/* Package */}
           <div className="bg-brand-900 p-8 rounded-2xl shadow-2xl text-white transform md:-translate-y-4 flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-bl-lg">MAIS ESCOLHIDO</div>
-            <h3 className="text-xl font-bold text-brand-100 mb-2">Pacote 10 Sessões</h3>
+            <h3 className="text-xl font-bold text-brand-100 mb-2">Pacote 10 Atendimentos</h3>
             <div className="text-3xl md:text-4xl font-extrabold text-white mb-2">
-              R$ 2.000 <span className="text-sm font-normal text-brand-300">total</span>
+              R$ 1.600 <span className="text-sm font-normal text-brand-300">total</span>
             </div>
-            <p className="text-brand-300 text-sm mb-6 font-semibold">Economia de R$ 500 (20% OFF)</p>
+            <p className="text-brand-300 text-sm mb-6 font-semibold">Economia de R$ 400 (20% OFF)</p>
             
             <div className="mb-6">
               <p className="font-bold text-white mb-3 uppercase text-xs tracking-wider">Bônus Exclusivos:</p>
               <ul className="space-y-3">
                 <li className="flex gap-2 items-start text-brand-50"><Star size={18} className="text-yellow-400 shrink-0 mt-0.5"/> Relatório de evolução mensal</li>
-                <li className="flex gap-2 items-start text-brand-50"><Star size={18} className="text-yellow-400 shrink-0 mt-0.5"/> Guia de exercícios entre sessões</li>
+                <li className="flex gap-2 items-start text-brand-50"><Star size={18} className="text-yellow-400 shrink-0 mt-0.5"/> Guia de exercícios entre consultas</li>
                 <li className="flex gap-2 items-start text-brand-50"><Star size={18} className="text-yellow-400 shrink-0 mt-0.5"/> Suporte VIP no WhatsApp</li>
               </ul>
             </div>
@@ -541,8 +551,19 @@ const App: React.FC = () => {
             <p className="opacity-80">Fisioterapia Domiciliar & Reabilitação Neurológica</p>
             <p className="text-sm mt-2 opacity-60">São José dos Campos - SP</p>
           </div>
-          <div className="text-sm opacity-60">
-            &copy; {new Date().getFullYear()} Todos os direitos reservados.
+          
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <a 
+              href="https://www.instagram.com/bel.fisio/" 
+              target="_blank" 
+              rel="noreferrer"
+              className="flex items-center gap-2 text-white hover:text-brand-300 transition-colors"
+            >
+              <Instagram size={20} /> @bel.fisio
+            </a>
+            <div className="text-sm opacity-60">
+              &copy; {new Date().getFullYear()} Todos os direitos reservados.
+            </div>
           </div>
         </div>
       </footer>
@@ -550,7 +571,9 @@ const App: React.FC = () => {
       {/* Floating CTA for Mobile */}
       <div className="fixed bottom-6 right-6 z-40 md:hidden">
         <a 
-          href="https://wa.me/5512999999999"
+          href="https://wa.me/5512992186161"
+          target="_blank"
+          rel="noreferrer"
           className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-[#128C7E] transition-colors"
         >
           <MessageCircle size={28} />

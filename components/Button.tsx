@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <button 
       className={`${baseStyles} ${variants[variant]} ${widthStyle} ${className}`}
-      onClick={() => window.open('https://wa.me/5512999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20fisioterapia%20domiciliar.', '_blank')}
+      onClick={() => window.open('https://wa.me/5512992186161?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20fisioterapia%20domiciliar.', '_blank')}
       {...props}
     >
       {icon === 'whatsapp' && <MessageCircle className="w-6 h-6 mr-2" />}
