@@ -25,6 +25,56 @@ import {
 } from 'lucide-react';
 import { FAQItem, ComparisonRow } from './types';
 
+// Video Facade Component to improve performance
+const VideoCard: React.FC<{ videoId: string; title: string; description: string }> = ({ videoId, title, description }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div className="space-y-4">
+      <div 
+        className="aspect-[9/16] max-w-sm mx-auto w-full bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-brand-700 relative group cursor-pointer"
+        onClick={() => setIsPlaying(true)}
+      >
+        {!isPlaying ? (
+          <>
+            {/* Thumbnail Image */}
+            <img 
+              src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`} 
+              alt={title}
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity"
+              width="320"
+              height="570"
+            />
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="bg-brand-600/90 text-white rounded-full p-4 transform group-hover:scale-110 transition-transform shadow-lg">
+                <Play className="w-8 h-8 fill-current ml-1" />
+              </div>
+            </div>
+          </>
+        ) : (
+          <iframe 
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1`} 
+            title={title}
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+          ></iframe>
+        )}
+      </div>
+      <div className="text-center md:text-left max-w-sm mx-auto">
+         <h4 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
+           <PlayCircle className="text-brand-300" /> {title}
+         </h4>
+         <p className="text-brand-100 text-sm leading-relaxed">
+            {description}
+         </p>
+      </div>
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -72,7 +122,7 @@ const App: React.FC = () => {
             <span className="truncate">Atendimento Domiciliar em São José dos Campos</span>
           </div>
           <a 
-            href="https://wa.me/5512992186161"
+            href="https://wa.me/5512992186161?text=Vim%20da%20página%20e%20quero%20saber%20mais%20sobre%20o%20seu%20atendimento%20para%20AVC."
             target="_blank"
             rel="noreferrer"
             className="hidden md:flex items-center gap-2 bg-brand-600 hover:bg-brand-500 px-4 py-1.5 rounded-full text-sm font-bold transition-colors shrink-0"
@@ -83,7 +133,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <Section bg="brand" className="pt-32 pb-20 md:pt-40 md:pb-32">
+      <Section bg="brand" className="pt-20 pb-20 md:pt-40 md:pb-32">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-in-up order-2 md:order-1">
             <span className="inline-block bg-brand-700 text-brand-100 px-4 py-2 rounded-full text-sm font-bold tracking-wide uppercase">
@@ -122,17 +172,19 @@ const App: React.FC = () => {
               </Button>
             </div>
           </div>
-          <div className="relative mt-8 md:mt-0 order-1 md:order-2">
+          <div className="relative mt-4 md:mt-0 order-1 md:order-2">
              {/* Profile Image Hero */}
             <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 max-w-[80%] mx-auto md:max-w-full">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
                 alt="Fisioterapeuta Izabel Macedo" 
                 className="w-full h-auto object-cover"
+                width="600"
+                height="800"
+                loading="eager"
+                // @ts-ignore
+                fetchPriority="high"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6">
-                <p className="text-white font-bold text-lg">Reabilitação no conforto do lar</p>
-              </div>
             </div>
           </div>
         </div>
@@ -288,6 +340,9 @@ const App: React.FC = () => {
               src="https://picsum.photos/seed/grandparent_hug/600/400" 
               alt="Família feliz com idoso" 
               className="rounded-2xl shadow-xl w-full"
+              loading="lazy"
+              width="600"
+              height="400"
             />
           </div>
           <div className="order-1 lg:order-2">
@@ -376,54 +431,24 @@ const App: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           
-          {/* Video 1 */}
-          <div className="space-y-4">
-            <div className="aspect-[9/16] max-w-sm mx-auto w-full bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-brand-700">
-               <iframe 
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/J5gYAHgFtoI" 
-                  title="Terapia com Dança e Afeto" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                ></iframe>
-            </div>
-            <div className="text-center md:text-left max-w-sm mx-auto">
-               <h4 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
-                 <PlayCircle className="text-brand-300" /> Terapia com Dança e Afeto
-               </h4>
-               <p className="text-brand-100 text-sm leading-relaxed">
-                  A reabilitação vai muito além dos exercícios tradicionais! Incluímos a dança (forró) com o filho para trazer memórias afetivas e alegria ao tratamento.
-               </p>
-            </div>
-          </div>
+          {/* Video 1 - Using Facade */}
+          <VideoCard 
+            videoId="J5gYAHgFtoI"
+            title="Terapia com Dança e Afeto"
+            description="A reabilitação vai muito além dos exercícios tradicionais! Incluímos a dança (forró) com o filho para trazer memórias afetivas e alegria ao tratamento."
+          />
 
-          {/* Video 2 */}
-          <div className="space-y-4">
-            <div className="aspect-[9/16] max-w-sm mx-auto w-full bg-black rounded-xl overflow-hidden shadow-2xl border-4 border-brand-700">
-                <iframe 
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/_BYMV8tNgcc" 
-                  title="Superação pós-AVC aos 54 anos" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                ></iframe>
-            </div>
-            <div className="text-center md:text-left max-w-sm mx-auto">
-               <h4 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
-                 <PlayCircle className="text-brand-300" /> Superação pós-AVC
-               </h4>
-               <p className="text-brand-100 text-sm leading-relaxed">
-                  De desafios a conquistas: veja como a fisioterapia ajudou nossa paciente a reescrever sua história e reencontrar a independência.
-               </p>
-            </div>
-          </div>
+          {/* Video 2 - Using Facade */}
+          <VideoCard 
+            videoId="_BYMV8tNgcc"
+            title="Superação pós-AVC"
+            description="De desafios a conquistas: veja como a fisioterapia ajudou nossa paciente a reescrever sua história e reencontrar a independência."
+          />
 
         </div>
 
         <div className="pt-16 text-center">
-            <Button variant="whatsapp" icon="whatsapp" className="bg-white text-brand-900 hover:bg-gray-100 w-full md:w-auto shadow-lg">
+            <Button variant="secondary" icon="whatsapp" className="w-full md:w-auto shadow-lg">
               Recuperar autonomia do meu Familiar
             </Button>
         </div>
@@ -438,6 +463,9 @@ const App: React.FC = () => {
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-10.webp" 
                 alt="Foto de Izabel Macedo" 
                 className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
+                loading="lazy"
+                width="400"
+                height="400"
               />
             </div>
           </div>
@@ -475,7 +503,7 @@ const App: React.FC = () => {
               <li className="flex gap-2 items-center text-slate-600"><CheckCircle2 size={18} className="text-brand-500"/> Atendimento no domicílio</li>
               <li className="flex gap-2 items-center text-slate-600"><CheckCircle2 size={18} className="text-brand-500"/> 1h30 de duração</li>
             </ul>
-            <Button variant="outline" className="border-brand-600 text-brand-600 hover:bg-brand-50 w-full">
+            <Button variant="outlineBrand" fullWidth className="w-full">
               Agendar Avulso
             </Button>
           </div>
@@ -571,7 +599,7 @@ const App: React.FC = () => {
       {/* Floating CTA for Mobile */}
       <div className="fixed bottom-6 right-6 z-40 md:hidden">
         <a 
-          href="https://wa.me/5512992186161"
+          href="https://wa.me/5512992186161?text=Vim%20da%20página%20e%20quero%20saber%20mais%20sobre%20o%20seu%20atendimento%20para%20AVC."
           target="_blank"
           rel="noreferrer"
           className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:bg-[#128C7E] transition-colors"
