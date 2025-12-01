@@ -8,83 +8,82 @@
     <title>Fisioterapia Domiciliar em SJC - Especialista em AVC | Izabel Macedo</title>
     <meta name="description" content="Fisioterapia domiciliar em São José dos Campos especializada em reabilitação de AVC e neurofuncional. Atendimento humanizado, conforto e resultados com Izabel Macedo." />
     <meta name="keywords" content="fisioterapia domiciliar sjc, fisioterapeuta são josé dos campos, reabilitação avc, fisioterapia neurofuncional, tratamento avc em casa, izabel macedo" />
-    <meta name="author" content="Izabel Macedo" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://izabelmacedofisio.com.br" />
     <meta name="theme-color" content="#064e3b" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://izabelmacedofisio.com.br/" />
-    <meta property="og:title" content="Recupere a Autonomia pós-AVC sem sair de casa | Fisioterapia SJC" />
-    <meta property="og:description" content="Atendimento especializado em reabilitação neurológica no conforto do seu lar em São José dos Campos." />
     <meta property="og:image" content="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" />
-    <meta name="twitter:image" content="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" />
-    <meta property="og:locale" content="pt_BR" />
-
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-4l-3 9L9 3l-3 9H2'/%3E%3C/svg%3E" />
     
     <!-- Resource Hints: Critical for Performance -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://autovmd-wordpress.7uu36r.easypanel.host">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://autovmd-wordpress.7uu36r.easypanel.host" crossorigin>
+    <link rel="dns-prefetch" href="https://autovmd-wordpress.7uu36r.easypanel.host">
     
-    <!-- Preload Critical LCP Image -->
-    <link rel="preload" as="image" href="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" fetchpriority="high">
+    <!-- CRITICAL PRELOAD: Responsive LCP Image Strategy -->
+    <!-- Isso força o navegador a baixar a versão correta da imagem IMEDIATAMENTE -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp"
+      imagesrcset="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 400w, 
+                   https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 800w"
+      imagesizes="(max-width: 768px) 280px, 400px"
+      fetchpriority="high"
+    >
 
-    <!-- Critical CSS: Inline styles to render the Hero BEFORE CSS/JS loads -->
+    <!-- Critical CSS: Inline styles for the App Shell (Above the Fold Only) -->
     <style>
-      body { background-color: #064e3b; margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; color: #fff; -webkit-font-smoothing: antialiased; }
-      #root { min-height: 100vh; display: flex; flex-direction: column; }
+      /* Reset & Base */
+      body { background-color: #064e3b; margin: 0; font-family: 'Montserrat', system-ui, sans-serif; overflow-x: hidden; color: #fff; -webkit-font-smoothing: antialiased; }
+      img { max-width: 100%; height: auto; display: block; }
       
-      /* Critical Layout Styles - Mimics Tailwind for instant paint */
+      /* Header Critical CSS */
       .c-header { position: fixed; top: 0; width: 100%; height: 60px; background-color: #064e3b; z-index: 50; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; }
-      .c-header-content { max-width: 80rem; width: 100%; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
-      .c-hero { padding-top: 5rem; padding-bottom: 4rem; background-color: #064e3b; color: white; }
+      .c-header-inner { max-width: 80rem; width: 100%; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
+      .c-logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px; }
+      
+      /* Hero Critical CSS */
+      .c-hero { padding-top: 5rem; padding-bottom: 4rem; background-color: #064e3b; }
       .c-container { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
       .c-grid { display: grid; gap: 2rem; }
       
-      /* Typography defaults to prevent layout shift */
-      h1 { font-size: 1.875rem; line-height: 1.25; font-weight: 700; margin-bottom: 1.5rem; }
+      /* Typography to match Tailwind defaults exactly */
+      h1 { font-size: 1.875rem; line-height: 1.25; font-weight: 700; margin: 0 0 1.5rem 0; }
+      .c-pill { background-color: #15803d; color: #dcfce7; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1.5rem; }
+      .c-desc { font-size: 1.125rem; color: #dcfce7; font-weight: 500; margin-bottom: 1.5rem; }
       
-      /* LCP Image Placeholder Styles */
-      .c-img-container {
+      /* Image Container - The LCP Hero */
+      .c-img-wrapper {
         position: relative;
-        width: 280px;
-        margin: 1rem auto;
+        width: 280px; 
         aspect-ratio: 3/4;
-        background-color: #166534; /* brand-800 */
+        margin: 1rem auto;
+        background-color: #166534;
         border-radius: 1rem;
         border: 4px solid rgba(21, 128, 61, 0.5);
         overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
       }
       
-      .c-img-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      /* Desktop adjustments */
+      /* Desktop Media Query */
       @media (min-width: 768px) {
         .c-hero { padding-top: 8rem; padding-bottom: 6rem; }
         .c-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: center; }
         h1 { font-size: 3rem; }
-        .c-order-1 { order: 1; }
+        .c-order-1 { order: 1; display: flex; justify-content: flex-end; }
         .c-order-2 { order: 2; }
-        .c-img-container { width: 400px; margin: 0; margin-left: auto; }
+        .c-img-wrapper { width: 400px; margin: 0; }
       }
-
+      
+      /* Performance Utils */
       .content-visibility-auto { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
     </style>
 
-    <!-- Tailwind Config -->
+    <!-- Tailwind Config - Keeping CDN for functionality but styling is handled by inline CSS for critical path -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -101,11 +100,8 @@
       }
     </script>
     
-    <!-- Async Font Loading Strategy -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    </noscript>
+    <!-- Fonts - Swap strategy to avoid invisible text -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script type="importmap">
 {
@@ -119,16 +115,13 @@
 </script>
 </head>
   <body>
-    <!-- 
-      APP SHELL: Static HTML injected here to drop FCP to ~0.8s.
-      This content is visible IMMEDIATELY while React loads in the background.
-    -->
+    <!-- APP SHELL: Static HTML for Instant FCP -->
     <div id="root">
       <div class="c-header">
-        <div class="c-header-content">
-          <div style="display:flex; align-items:center; gap:0.5rem; font-weight:600; font-size: 0.875rem;">
+        <div class="c-header-inner">
+          <div class="c-logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 250px;">Atendimento Domiciliar em São José dos Campos</span>
+            <span>Atendimento Domiciliar em São José dos Campos</span>
           </div>
         </div>
       </div>
@@ -137,22 +130,26 @@
         <div class="c-container">
           <div class="c-grid">
             <div class="c-order-2">
-              <span style="background-color: #15803d; color: #dcfce7; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1.5rem;">Especialista em AVC</span>
+              <span class="c-pill">Especialista em AVC</span>
               <h1>Recupere a Autonomia do Seu Familiar Sem Precisar Sair de Casa</h1>
-              <p style="font-size: 1.125rem; color: #dcfce7; font-weight: 500; margin-bottom: 1.5rem;">
+              <p class="c-desc">
                 Fisioterapia domiciliar especializada para quem precisa de resultados reais, com carinho, conforto e profissionalismo.
               </p>
             </div>
             
-            <div class="c-order-1" style="display: flex; justify-content: flex-end;">
-              <div class="c-img-container">
+            <div class="c-order-1">
+              <div class="c-img-wrapper">
                 <img 
                   src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
+                  srcset="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 400w, 
+                          https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 800w"
+                  sizes="(max-width: 768px) 280px, 400px"
                   alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
-                  width="450"
-                  height="600"
+                  width="400"
+                  height="533"
                   fetchpriority="high"
                   decoding="sync"
+                  style="width: 100%; height: 100%; object-fit: cover;"
                 />
               </div>
             </div>

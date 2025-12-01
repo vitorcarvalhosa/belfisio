@@ -8,7 +8,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 
-// Lazy load non-critical components
+// Lazy load non-critical components to reduce initial JS bundle size
 const MainContent = lazy(() => import('./components/MainContent'));
 
 // Optimized Skeleton for MainContent
@@ -38,8 +38,8 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col font-sans text-slate-800 overflow-x-hidden bg-brand-900">
       
       {/* Header - Critical */}
-      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
+      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md h-[60px] flex items-center justify-center">
+        <div className="max-w-7xl w-full mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 text-sm md:text-base font-semibold truncate">
             <MapPin size={18} className="text-brand-500 shrink-0" />
             <span className="truncate">Atendimento Domiciliar em São José dos Campos</span>
@@ -97,7 +97,10 @@ const App: React.FC = () => {
              {/* Aspect Ratio Container EXACTLY matching HTML Shell */}
             <div className="relative w-[280px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
               <img 
-                src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
+                src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp"
+                srcset="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 400w, 
+                        https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 800w"
+                sizes="(max-width: 768px) 280px, 400px"
                 alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
                 className="w-full h-full object-cover"
                 width="400"
@@ -106,7 +109,6 @@ const App: React.FC = () => {
                 decoding="sync"
                 // @ts-ignore
                 fetchPriority="high"
-                sizes="(max-width: 768px) 280px, 400px"
               />
             </div>
           </div>
