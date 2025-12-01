@@ -59,39 +59,32 @@ const MainContent: React.FC = () => {
   return (
     <>
       {/* Stats / Urgency */}
-      <Section bg="dark" className="border-b border-slate-800 section-lazy">
+      <Section bg="dark" className="border-b border-slate-800 content-visibility-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 order-2 lg:order-1">
             <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">
               O tempo é o fator mais crítico na recuperação de um AVC
             </h2>
             <div className="space-y-6">
-              <div className="flex gap-4 p-4 bg-slate-800/50 rounded-xl border-l-4 border-red-500">
-                <div className="bg-red-500/10 p-2 rounded-full h-fit shrink-0"><AlertTriangle className="text-red-500 w-6 h-6" /></div>
-                <div>
-                  <p className="text-red-400 font-bold uppercase text-xs mb-1">Dado Alarmante</p>
-                  <p className="text-slate-200 font-medium leading-relaxed text-sm md:text-base">O AVC mata um brasileiro a cada poucos minutos. A reabilitação imediata não é luxo, é necessidade vital.</p>
+              {[
+                { icon: <AlertTriangle className="text-red-500 w-6 h-6" />, color: "red", title: "Dado Alarmante", text: "O AVC mata um brasileiro a cada poucos minutos. A reabilitação imediata não é luxo, é necessidade vital." },
+                { icon: <Timer className="text-blue-500 w-6 h-6" />, color: "blue", title: "Janela de Oportunidade", text: "Quanto antes iniciar a fisioterapia especializada, maiores as chances de retomar a autonomia." },
+                { icon: <TrendingUp className="text-green-500 w-6 h-6" />, color: "green", title: "Esperança", text: "90% dos casos têm evolução positiva com intervenção rápida e correta." }
+              ].map((item, i) => (
+                <div key={i} className={`flex gap-4 p-4 bg-slate-800/50 rounded-xl border-l-4 border-${item.color}-500`}>
+                  <div className={`bg-${item.color}-500/10 p-2 rounded-full h-fit shrink-0`}>{item.icon}</div>
+                  <div>
+                    <p className={`text-${item.color}-400 font-bold uppercase text-xs mb-1`}>{item.title}</p>
+                    <p className="text-slate-200 font-medium leading-relaxed text-sm md:text-base">{item.text}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-4 p-4 bg-slate-800/50 rounded-xl border-l-4 border-blue-500">
-                 <div className="bg-blue-500/10 p-2 rounded-full h-fit shrink-0"><Timer className="text-blue-500 w-6 h-6" /></div>
-                <div>
-                  <p className="text-blue-400 font-bold uppercase text-xs mb-1">Janela de Oportunidade</p>
-                  <p className="text-slate-200 font-medium leading-relaxed text-sm md:text-base">Quanto antes iniciar a fisioterapia especializada, maiores as chances de retomar a autonomia.</p>
-                </div>
-              </div>
-              <div className="flex gap-4 p-4 bg-slate-800/50 rounded-xl border-l-4 border-green-500">
-                <div className="bg-green-500/10 p-2 rounded-full h-fit shrink-0"><TrendingUp className="text-green-500 w-6 h-6" /></div>
-                <div>
-                  <p className="text-green-400 font-bold uppercase text-xs mb-1">Esperança</p>
-                  <p className="text-slate-200 font-medium leading-relaxed text-sm md:text-base">90% dos casos têm evolução positiva com intervenção rápida e correta.</p>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="pt-2">
               <Button icon="calendar" variant="primary" fullWidth className="md:w-auto">Agendar atendimento agora</Button>
             </div>
           </div>
+          
           <div className="relative order-1 lg:order-2 w-full max-w-full">
             <div className="bg-white rounded-xl overflow-hidden shadow-2xl border border-slate-700 w-full max-w-full">
               <div className="bg-slate-100 border-b border-slate-200 px-4 py-2 flex items-center gap-2">
@@ -123,7 +116,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* How it Works */}
-      <Section id="como-funciona" bg="white" className="section-lazy">
+      <Section id="como-funciona" bg="white" className="content-visibility-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-2xl md:text-4xl font-bold text-brand-900 mb-4">Como Funciona o Atendimento</h2>
           <p className="text-base md:text-lg text-slate-600 px-2">A Izabel leva a clínica até você. Cada consulta tem até <span className="font-bold text-brand-700">1h30 de duração</span> e inclui todos os equipamentos necessários.</p>
@@ -143,12 +136,12 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* Target Audience */}
-      <Section bg="light" className="section-lazy">
+      <Section bg="light" className="content-visibility-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <img 
               src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" 
-              alt="Atendimento de Fisioterapia" 
+              alt="Atendimento de Fisioterapia Domiciliar para Pacientes com AVC" 
               className="rounded-2xl shadow-xl w-full"
               loading="lazy"
               width="600"
@@ -171,7 +164,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* Comparison Table */}
-      <Section bg="white" className="section-lazy">
+      <Section bg="white" className="content-visibility-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-brand-900 text-center mb-8 md:mb-12">Por que escolher a Izabel?</h2>
         <div className="hidden md:block overflow-x-auto rounded-xl shadow-xl border border-slate-200">
           <table className="w-full text-left border-collapse">
@@ -216,7 +209,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* Social Proof */}
-      <Section bg="brand" className="section-lazy">
+      <Section bg="brand" className="content-visibility-auto">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">Provas de Que Funciona</h2>
           <p className="text-brand-100 text-base md:text-lg">Veja o que as famílias estão dizendo sobre a recuperação.</p>
@@ -231,13 +224,13 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* About */}
-      <Section bg="light" className="section-lazy">
+      <Section bg="light" className="content-visibility-auto">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="w-full md:w-1/2 lg:w-1/3">
             <div className="relative max-w-sm mx-auto">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-10.webp" 
-                alt="Fisioterapeuta Izabel Macedo" 
+                alt="Fisioterapeuta Izabel Macedo em São José dos Campos" 
                 className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
                 loading="lazy"
                 width="400"
@@ -256,7 +249,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* Pricing */}
-      <Section id="investimento" bg="white" className="section-lazy">
+      <Section id="investimento" bg="white" className="content-visibility-auto">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-brand-900">Investimento na Recuperação</h2>
           <p className="text-slate-600 mt-2">Valores transparentes para um serviço premium.</p>
@@ -291,7 +284,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* FAQ */}
-      <Section bg="light" className="section-lazy">
+      <Section bg="light" className="content-visibility-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-brand-900 text-center mb-12">Dúvidas Frequentes</h2>
         <div className="max-w-2xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
@@ -309,7 +302,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* Footer */}
-      <Section bg="white" className="border-t border-slate-100 section-lazy">
+      <Section bg="white" className="border-t border-slate-100 content-visibility-auto">
         <div className="text-center max-w-2xl mx-auto">
           <HeartHandshake className="w-16 h-16 text-brand-600 mx-auto mb-6" />
           <h2 className="text-2xl md:text-3xl font-bold text-brand-900 mb-4">Ainda tem dúvidas?</h2>
@@ -318,7 +311,7 @@ const MainContent: React.FC = () => {
         </div>
       </Section>
 
-      <footer className="bg-brand-900 text-brand-100 py-12 section-lazy">
+      <footer className="bg-brand-900 text-brand-100 py-12 content-visibility-auto">
         <div className="max-w-7xl mx-auto px-4 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <h3 className="text-2xl font-bold text-white mb-2">Izabel Macedo</h3>

@@ -5,34 +5,30 @@ import {
   CheckCircle2, 
   MapPin, 
   Phone,
-  MessageCircle,
-  AlertTriangle,
-  Timer,
-  TrendingUp
+  MessageCircle
 } from 'lucide-react';
 
-// Lazy load non-critical components to boost Initial Load Time
+// Lazy load non-critical components
 const MainContent = lazy(() => import('./components/MainContent'));
 
-// Skeleton Component to prevent layout shift and improve perceived performance
+// Optimized Skeleton
 const StatsSkeleton = () => (
-  <div className="bg-slate-900 py-16 px-4 md:py-24 border-b border-slate-800">
+  <div className="bg-slate-900 py-16 px-4 md:py-24 border-b border-slate-800" aria-hidden="true">
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
        <div className="space-y-8">
-          <div className="h-8 md:h-12 bg-slate-800/50 rounded w-3/4 animate-pulse"></div>
+          <div className="h-12 bg-slate-800 rounded w-3/4"></div>
           <div className="space-y-6">
              {[1, 2, 3].map(i => (
-                <div key={i} className="flex gap-4 p-4 bg-slate-800/30 rounded-xl border-l-4 border-slate-700">
-                   <div className="w-10 h-10 rounded-full bg-slate-700 animate-pulse shrink-0"></div>
+                <div key={i} className="flex gap-4 p-4 bg-slate-800 rounded-xl border-l-4 border-slate-700">
+                   <div className="w-10 h-10 rounded-full bg-slate-700"></div>
                    <div className="w-full space-y-2">
-                      <div className="h-3 w-24 bg-slate-700 rounded animate-pulse"></div>
-                      <div className="h-4 w-full bg-slate-700 rounded animate-pulse"></div>
+                      <div className="h-3 w-24 bg-slate-700 rounded"></div>
+                      <div className="h-4 w-full bg-slate-700 rounded"></div>
                    </div>
                 </div>
              ))}
           </div>
        </div>
-       <div className="h-64 md:h-96 bg-slate-800/30 rounded-xl animate-pulse border border-slate-700"></div>
     </div>
   </div>
 );
@@ -41,8 +37,8 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800 overflow-x-hidden bg-brand-900">
       
-      {/* Header - Critical CSS Inline in Index.html handles background color */}
-      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md transform-gpu">
+      {/* Header - Critical Inline CSS handles the green background immediately */}
+      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 text-sm md:text-base font-semibold truncate">
             <MapPin size={18} className="text-brand-500 shrink-0" />
@@ -59,14 +55,16 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Hero Section - Above the Fold - Must load instantly */}
-      <Section bg="brand" className="pt-20 pb-20 md:pt-40 md:pb-32">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in-up order-2 md:order-1">
+      {/* Hero Section - Optimized LCP */}
+      <Section bg="brand" className="pt-20 pb-16 md:pt-32 md:pb-24 hero-critical">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          
+          {/* Text Content */}
+          <div className="space-y-6 animate-fade-in-up order-2 md:order-1">
             <span className="inline-block bg-brand-700 text-brand-100 px-4 py-2 rounded-full text-sm font-bold tracking-wide uppercase">
               Especialista em AVC
             </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
               Recupere a Autonomia do Seu Familiar Sem Precisar Sair de Casa
             </h1>
             
@@ -75,57 +73,52 @@ const App: React.FC = () => {
                 Fisioterapia domiciliar especializada para quem precisa de resultados reais, com carinho, conforto e profissionalismo.
               </p>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3 text-brand-50 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-brand-400 shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">Entenda como funciona a reabilitação neurológica em casa</span>
-                </li>
-                <li className="flex items-start gap-3 text-brand-50 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-brand-400 shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">Descubra por que o atendimento domiciliar traz resultados mais rápidos e seguros</span>
-                </li>
-                <li className="flex items-start gap-3 text-brand-50 font-medium">
-                  <CheckCircle2 className="w-6 h-6 text-brand-400 shrink-0 mt-0.5" />
-                  <span className="leading-relaxed">Veja casos reais e comece o tratamento com mais confiança</span>
-                </li>
+                {[
+                  "Entenda como funciona a reabilitação neurológica em casa",
+                  "Descubra por que o atendimento domiciliar traz resultados mais rápidos e seguros",
+                  "Veja casos reais e comece o tratamento com mais confiança"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-brand-50 font-medium">
+                    <CheckCircle2 className="w-6 h-6 text-brand-400 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button icon="calendar" variant="secondary">
-                Agendar atendimento
-              </Button>
-              <Button icon="whatsapp" variant="whatsapp">
-                Tirar dúvidas
-              </Button>
+              <Button icon="calendar" variant="secondary">Agendar atendimento</Button>
+              <Button icon="whatsapp" variant="whatsapp">Tirar dúvidas</Button>
             </div>
           </div>
-          <div className="relative mt-4 md:mt-0 order-1 md:order-2">
-             {/* Profile Image Hero - LCP ELEMENT OPTIMIZED */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 max-w-[80%] mx-auto md:max-w-full bg-brand-800">
+
+          {/* Hero Image - LCP OPTIMIZED */}
+          <div className="relative mt-4 md:mt-0 order-1 md:order-2 w-full flex justify-center md:justify-end">
+             {/* Aspect Ratio Container to prevent CLS */}
+            <div className="relative w-[280px] md:w-[400px] lg:w-[450px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
                 alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
                 width="600"
                 height="800"
                 loading="eager"
                 decoding="sync"
                 // @ts-ignore
                 fetchPriority="high"
-                srcSet="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 600w"
-                sizes="(max-width: 768px) 80vw, 50vw"
+                sizes="(max-width: 768px) 280px, (max-width: 1024px) 400px, 450px"
               />
             </div>
           </div>
         </div>
       </Section>
 
-      {/* Lazy Load the rest of the app with Skeleton Fallback */}
+      {/* Lazy Loaded Content */}
       <Suspense fallback={<StatsSkeleton />}>
         <MainContent />
       </Suspense>
 
-      {/* Floating CTA for Mobile - Lazy loaded by browser, visually sticky */}
+      {/* Floating CTA Mobile */}
       <div className="fixed bottom-6 right-6 z-40 md:hidden">
         <a 
           href="https://wa.me/5512992186161?text=Vim%20da%20página%20e%20quero%20saber%20mais%20sobre%20o%20seu%20atendimento%20para%20AVC."
