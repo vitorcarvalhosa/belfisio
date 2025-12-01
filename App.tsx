@@ -5,18 +5,44 @@ import {
   CheckCircle2, 
   MapPin, 
   Phone,
-  MessageCircle
+  MessageCircle,
+  AlertTriangle,
+  Timer,
+  TrendingUp
 } from 'lucide-react';
 
 // Lazy load non-critical components to boost Initial Load Time
 const MainContent = lazy(() => import('./components/MainContent'));
+
+// Skeleton Component to prevent layout shift and improve perceived performance
+const StatsSkeleton = () => (
+  <div className="bg-slate-900 py-16 px-4 md:py-24 border-b border-slate-800">
+    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12">
+       <div className="space-y-8">
+          <div className="h-8 md:h-12 bg-slate-800/50 rounded w-3/4 animate-pulse"></div>
+          <div className="space-y-6">
+             {[1, 2, 3].map(i => (
+                <div key={i} className="flex gap-4 p-4 bg-slate-800/30 rounded-xl border-l-4 border-slate-700">
+                   <div className="w-10 h-10 rounded-full bg-slate-700 animate-pulse shrink-0"></div>
+                   <div className="w-full space-y-2">
+                      <div className="h-3 w-24 bg-slate-700 rounded animate-pulse"></div>
+                      <div className="h-4 w-full bg-slate-700 rounded animate-pulse"></div>
+                   </div>
+                </div>
+             ))}
+          </div>
+       </div>
+       <div className="h-64 md:h-96 bg-slate-800/30 rounded-xl animate-pulse border border-slate-700"></div>
+    </div>
+  </div>
+);
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-800 overflow-x-hidden bg-brand-900">
       
       {/* Header - Critical CSS Inline in Index.html handles background color */}
-      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md">
+      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md transform-gpu">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 text-sm md:text-base font-semibold truncate">
             <MapPin size={18} className="text-brand-500 shrink-0" />
@@ -75,7 +101,7 @@ const App: React.FC = () => {
           </div>
           <div className="relative mt-4 md:mt-0 order-1 md:order-2">
              {/* Profile Image Hero - LCP ELEMENT OPTIMIZED */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 max-w-[80%] mx-auto md:max-w-full">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 md:transform md:rotate-2 md:hover:rotate-0 transition-transform duration-500 max-w-[80%] mx-auto md:max-w-full bg-brand-800">
               <img 
                 src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" 
                 alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
@@ -86,14 +112,16 @@ const App: React.FC = () => {
                 decoding="sync"
                 // @ts-ignore
                 fetchPriority="high"
+                srcSet="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 600w"
+                sizes="(max-width: 768px) 80vw, 50vw"
               />
             </div>
           </div>
         </div>
       </Section>
 
-      {/* Lazy Load the rest of the app */}
-      <Suspense fallback={<div className="h-screen bg-brand-900"></div>}>
+      {/* Lazy Load the rest of the app with Skeleton Fallback */}
+      <Suspense fallback={<StatsSkeleton />}>
         <MainContent />
       </Suspense>
 

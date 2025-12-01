@@ -18,22 +18,27 @@
     <meta property="og:url" content="https://izabelmacedofisio.com.br/" />
     <meta property="og:title" content="Recupere a Autonomia pós-AVC sem sair de casa | Fisioterapia SJC" />
     <meta property="og:description" content="Atendimento especializado em reabilitação neurológica no conforto do seu lar em São José dos Campos." />
-    <meta property="og:image" content="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" />
+    <meta property="og:image" content="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" />
+    <meta name="twitter:image" content="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" />
     <meta property="og:locale" content="pt_BR" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-4l-3 9L9 3l-3 9H2'/%3E%3C/svg%3E" />
     
-    <!-- Critical Preconnections -->
+    <!-- Resource Hints: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://autovmd-wordpress.7uu36r.easypanel.host">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://autovmd-wordpress.7uu36r.easypanel.host">
     
     <!-- Preload Critical LCP Image -->
     <link rel="preload" as="image" href="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp" fetchpriority="high">
 
-    <!-- Tailwind -->
+    <!-- Tailwind Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -50,16 +55,25 @@
       }
     </script>
 
-    <!-- Critical CSS & Font Loading -->
+    <!-- Critical CSS & Layout Stability -->
     <style>
-      /* Critical Background to avoid white flash */
-      body { background-color: #064e3b; margin: 0; font-family: sans-serif; overflow-x: hidden; }
-      /* Content Visibility for below-fold performance */
+      /* Critical Background */
+      body { background-color: #064e3b; margin: 0; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+      
+      /* Avoid CLS on Header */
+      .header-placeholder { height: 60px; width: 100%; position: fixed; top: 0; z-index: 50; }
+      
+      /* Content Visibility Optimization */
       .section-lazy { content-visibility: auto; contain-intrinsic-size: 1px 600px; }
+      
       html { scroll-behavior: smooth; }
+      
+      /* Simple fade-in animation for smoother loading */
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      .animate-fade-in-up { animation: fadeIn 0.8s ease-out forwards; }
     </style>
     
-    <!-- Async Font Loading -->
+    <!-- Async Font Loading Strategy -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
