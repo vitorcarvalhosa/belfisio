@@ -279,7 +279,7 @@ const MainContent: React.FC = () => {
           <div className="w-full md:w-1/2 lg:w-1/3">
             <div className="relative max-w-sm mx-auto">
               <img 
-                src="/perfil-3.webp" 
+                src="/perfil-10.webp" 
                 alt="Fisioterapeuta Izabel Macedo Pós Graduada em Neurologia" 
                 className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
                 loading="lazy"
