@@ -45,9 +45,9 @@ export const VideoCard: React.FC<VideoCardProps> = ({ videoId, title, descriptio
         )}
       </div>
       <div className="text-center md:text-left max-w-sm mx-auto">
-         <h4 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
+         <h3 className="font-bold text-white text-lg mb-2 flex items-center justify-center md:justify-start gap-2">
            <PlayCircle className="text-brand-300" /> {title}
-         </h4>
+         </h3>
          <p className="text-brand-100 text-sm leading-relaxed">
             {description}
          </p>

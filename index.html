@@ -20,6 +20,7 @@
     <!-- Resource Hints: Critical for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     
     <!-- CRITICAL PRELOAD: Responsive LCP Image Strategy -->
     <link 
@@ -28,7 +29,7 @@
       href="/perfil-3.webp"
       imagesrcset="/perfil-3.webp 400w, 
                    /perfil-3.webp 800w"
-      imagesizes="(max-width: 768px) 100vw, 50vw"
+      imagesizes="(max-width: 768px) 280px, 400px"
       fetchpriority="high"
     >
 
@@ -148,12 +149,12 @@
                   src="/perfil-3.webp" 
                   srcset="/perfil-3.webp 400w, 
                           /perfil-3.webp 800w"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 280px, 400px"
                   alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
                   width="400"
                   height="533"
                   fetchpriority="high"
-                  decoding="async"
+                  decoding="sync"
                 />
               </div>
             </div>
