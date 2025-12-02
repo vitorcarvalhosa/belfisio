@@ -186,7 +186,7 @@ const MainContent: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1">
             <img 
-              src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Atendimento-Paciente-scaled.webp" 
+              src="/atendimento-paciente.webp" 
               alt="Atendimento de Fisioterapia Domiciliar para Pacientes com AVC" 
               className="rounded-2xl shadow-xl w-full"
               loading="lazy"
@@ -279,7 +279,7 @@ const MainContent: React.FC = () => {
           <div className="w-full md:w-1/2 lg:w-1/3">
             <div className="relative max-w-sm mx-auto">
               <img 
-                src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-10.webp" 
+                src="/perfil-3.webp" 
                 alt="Fisioterapeuta Izabel Macedo Pós Graduada em Neurologia" 
                 className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
                 loading="lazy"

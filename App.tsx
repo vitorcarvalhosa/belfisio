@@ -97,9 +97,9 @@ const App: React.FC = () => {
              {/* Aspect Ratio Container EXACTLY matching HTML Shell */}
             <div className="relative w-[280px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
               <img 
-                src="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp"
-                srcset="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 400w, 
-                        https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 800w"
+                src="/perfil-3.webp"
+                srcset="/perfil-3.webp 400w, 
+                        /perfil-3.webp 800w"
                 sizes="(max-width: 768px) 280px, 400px"
                 alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
                 className="w-full h-full object-cover"
