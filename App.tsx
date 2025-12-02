@@ -38,7 +38,7 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col font-sans text-slate-800 overflow-x-hidden bg-brand-900">
       
       {/* Header - Critical */}
-      <header className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md h-[60px] flex items-center justify-center">
+      <div className="bg-brand-900 text-white py-3 px-4 fixed top-0 w-full z-50 shadow-md h-[60px] flex items-center justify-center">
         <div className="max-w-7xl w-full mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 text-sm md:text-base font-semibold truncate">
             <MapPin size={18} className="text-brand-500 shrink-0" />
@@ -53,74 +53,72 @@ const App: React.FC = () => {
             <Phone size={16} /> Fale com a Izabel
           </a>
         </div>
-      </header>
+      </div>
 
-      <main role="main">
-        {/* Hero Section - Optimized LCP */}
-        <Section bg="brand" className="pt-20 pb-16 md:pt-32 md:pb-24 hero-critical">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+      {/* Hero Section - Optimized LCP */}
+      <Section bg="brand" className="pt-20 pb-16 md:pt-32 md:pb-24 hero-critical">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          
+          {/* Text Content */}
+          <div className="space-y-6 order-2 md:order-1">
+            <span className="inline-block bg-brand-700 text-brand-100 px-4 py-2 rounded-full text-sm font-bold tracking-wide uppercase">
+              Especialista em AVC
+            </span>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+              Recupere a Autonomia do Seu Familiar Sem Precisar Sair de Casa
+            </h1>
             
-            {/* Text Content */}
-            <div className="space-y-6 order-2 md:order-1">
-              <span className="inline-block bg-brand-700 text-white px-4 py-2 rounded-full text-sm font-bold tracking-wide uppercase">
-                Especialista em AVC
-              </span>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                Recupere a Autonomia do Seu Familiar Sem Precisar Sair de Casa
-              </h1>
-              
-              <div className="space-y-6 max-w-xl">
-                <p className="text-lg md:text-xl text-brand-100 font-medium">
-                  Fisioterapia domiciliar especializada para quem precisa de resultados reais, com carinho, conforto e profissionalismo.
-                </p>
-                <ul className="space-y-3">
-                  {[
-                    "Entenda como funciona a reabilitação neurológica em casa",
-                    "Descubra por que o atendimento domiciliar traz resultados mais rápidos e seguros",
-                    "Veja casos reais e comece o tratamento com mais confiança"
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-brand-50 font-medium">
-                      <CheckCircle2 className="w-6 h-6 text-brand-400 shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button icon="calendar" variant="secondary">Agendar atendimento</Button>
-                <Button icon="whatsapp" variant="whatsapp">Tirar dúvidas</Button>
-              </div>
+            <div className="space-y-6 max-w-xl">
+              <p className="text-lg md:text-xl text-brand-100 font-medium">
+                Fisioterapia domiciliar especializada para quem precisa de resultados reais, com carinho, conforto e profissionalismo.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Entenda como funciona a reabilitação neurológica em casa",
+                  "Descubra por que o atendimento domiciliar traz resultados mais rápidos e seguros",
+                  "Veja casos reais e comece o tratamento com mais confiança"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-brand-50 font-medium">
+                    <CheckCircle2 className="w-6 h-6 text-brand-400 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Hero Image - LCP OPTIMIZED */}
-            <div className="relative mt-4 md:mt-0 order-1 md:order-2 w-full flex justify-center md:justify-end">
-               {/* Aspect Ratio Container EXACTLY matching HTML Shell */}
-              <div className="relative w-[280px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
-                <img 
-                  src="/perfil-3.webp"
-                  srcSet="/perfil-3.webp 400w, 
-                          /perfil-3.webp 800w"
-                  sizes="(max-width: 768px) 280px, 400px"
-                  alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
-                  className="w-full h-full object-cover object-top"
-                  width="400"
-                  height="533"
-                  loading="eager"
-                  decoding="sync"
-                  fetchPriority="high"
-                  style={{ aspectRatio: '400/533', objectFit: 'cover' }}
-                />
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button icon="calendar" variant="secondary">Agendar atendimento</Button>
+              <Button icon="whatsapp" variant="whatsapp">Tirar dúvidas</Button>
             </div>
           </div>
-        </Section>
 
-        {/* Lazy Loaded Content */}
-        <Suspense fallback={<StatsSkeleton />}>
-          <MainContent />
-        </Suspense>
-      </main>
+          {/* Hero Image - LCP OPTIMIZED */}
+          <div className="relative mt-4 md:mt-0 order-1 md:order-2 w-full flex justify-center md:justify-end">
+             {/* Aspect Ratio Container EXACTLY matching HTML Shell */}
+            <div className="relative w-[280px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
+              <img 
+                src="/perfil-3.webp"
+                srcSet="/perfil-3.webp 400w, 
+                        /perfil-3.webp 800w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
+                className="w-full h-full object-cover object-top"
+                width="400"
+                height="533"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                style={{ aspectRatio: '400/533', objectFit: 'cover' }}
+              />
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Lazy Loaded Content */}
+      <Suspense fallback={<StatsSkeleton />}>
+        <MainContent />
+      </Suspense>
 
       {/* Floating CTA Mobile */}
       <div className="fixed bottom-6 right-6 z-40 md:hidden">

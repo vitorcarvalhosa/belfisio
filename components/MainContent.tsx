@@ -111,15 +111,15 @@ const MainContent: React.FC = () => {
                 <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-red-400"></div>
                 <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-yellow-400"></div>
                 <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-green-400"></div>
-                <div className="ml-2 md:ml-4 flex-1 bg-white h-5 md:h-6 rounded border border-slate-200 text-[9px] md:text-[10px] text-slate-500 flex items-center px-2 font-mono truncate">portal-noticias.saude.br/posts/avc-brasil-2025</div>
+                <div className="ml-2 md:ml-4 flex-1 bg-white h-5 md:h-6 rounded border border-slate-200 text-[9px] md:text-[10px] text-slate-400 flex items-center px-2 font-mono truncate">portal-noticias.saude.br/posts/avc-brasil-2025</div>
               </div>
               <div className="p-4 md:p-8 font-sans w-full box-border">
-                <div className="text-[9px] md:text-xs text-blue-800 font-bold mb-2 md:mb-3 uppercase tracking-wide flex flex-wrap gap-1"><span>Home</span> <span>&gt;</span> <span>Notícias</span> <span>&gt;</span> <span>Saúde</span></div>
+                <div className="text-[9px] md:text-xs text-blue-600 font-bold mb-2 md:mb-3 uppercase tracking-wide flex flex-wrap gap-1"><span>Home</span> <span>&gt;</span> <span>Notícias</span> <span>&gt;</span> <span>Saúde</span></div>
                 <h3 className="text-lg md:text-3xl font-extrabold text-slate-900 leading-tight mb-3 md:mb-4 break-words">AVC mata um brasileiro a cada sete minutos em 2025</h3>
-                <div className="flex flex-wrap items-center gap-2 md:gap-3 text-slate-500 text-[10px] md:text-xs mb-4 md:mb-6 font-medium border-b border-slate-100 pb-3 md:pb-4">
-                  <span className="text-slate-600">14 de maio de 2025</span>
+                <div className="flex flex-wrap items-center gap-2 md:gap-3 text-slate-400 text-[10px] md:text-xs mb-4 md:mb-6 font-medium border-b border-slate-100 pb-3 md:pb-4">
+                  <span className="text-slate-500">14 de maio de 2025</span>
                   <div className="hidden md:block w-1 h-1 bg-slate-300 rounded-full"></div>
-                  <span className="flex items-center gap-1 text-green-800 bg-green-50 px-2 py-0.5 rounded-full"><Clock size={10} className="md:w-3 md:h-3" /> 4 mins. de leitura</span>
+                  <span className="flex items-center gap-1 text-green-600 bg-green-50 px-2 py-0.5 rounded-full"><Clock size={10} className="md:w-3 md:h-3" /> 4 mins. de leitura</span>
                 </div>
                 <p className="text-slate-700 text-xs md:text-base leading-relaxed mb-4 md:mb-6 font-medium text-justify md:text-left"><strong className="text-slate-900">Nova Coalizão Mundial de Ação</strong> defende as bases para enfrentar o quadro, que poderá causar quase 10 milhões de mortes...</p>
                 <div className="bg-slate-50 rounded-lg p-2 md:p-3 flex items-center gap-2 md:gap-3 border border-slate-100">
@@ -127,7 +127,7 @@ const MainContent: React.FC = () => {
                    <div className="flex-1 h-6 md:h-8 flex items-center gap-0.5 md:gap-1 opacity-40 overflow-hidden">
                       {[...Array(15)].map((_, i) => (<div key={i} className="w-1 bg-slate-800 rounded-full" style={{ height: `${Math.random() * 10 + 5}px`}}></div>))}
                    </div>
-                   <span className="text-[10px] md:text-xs font-bold text-slate-700 bg-slate-200 px-1.5 py-0.5 rounded">1.0x</span>
+                   <span className="text-[10px] md:text-xs font-bold text-slate-500 bg-slate-200 px-1.5 py-0.5 rounded">1.0x</span>
                 </div>
               </div>
             </div>
@@ -220,11 +220,11 @@ const MainContent: React.FC = () => {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="p-6 text-sm font-bold text-slate-600 uppercase tracking-wider">Critério</th>
+                <th className="p-6 text-sm font-bold text-slate-500 uppercase tracking-wider">Critério</th>
                 <th className="p-6 text-brand-800 font-bold text-xl bg-brand-50 w-2/5 border-l border-r border-brand-100">
                   <div className="flex items-center gap-2"><Star className="text-yellow-500 fill-current" size={20} /> Com Izabel Macedo</div>
                 </th>
-                <th className="p-6 text-slate-500 font-bold text-lg w-2/5">Clínica / Convênio</th>
+                <th className="p-6 text-slate-400 font-bold text-lg w-2/5">Clínica / Convênio</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
@@ -232,7 +232,7 @@ const MainContent: React.FC = () => {
                 <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
                   <td className="p-6 font-semibold text-slate-700">{row.feature}</td>
                   <td className="p-6 text-brand-900 font-bold bg-brand-50/30 border-l border-r border-brand-100">{row.izabel}</td>
-                  <td className="p-6 text-slate-600">{row.clinic}</td>
+                  <td className="p-6 text-slate-500">{row.clinic}</td>
                 </tr>
               ))}
             </tbody>
@@ -244,12 +244,12 @@ const MainContent: React.FC = () => {
               <div className="bg-slate-100 p-3 text-center font-bold text-slate-700 text-sm border-b border-slate-200">{row.feature}</div>
               <div className="flex text-sm">
                 <div className="w-1/2 p-3 bg-brand-50 border-r border-slate-200 flex flex-col justify-center text-center">
-                  <span className="text-[10px] font-bold text-brand-700 mb-1 uppercase tracking-wider">Com Izabel</span>
+                  <span className="text-[10px] font-bold text-brand-600 mb-1 uppercase tracking-wider">Com Izabel</span>
                   <span className="font-bold text-brand-900 leading-snug">{row.izabel}</span>
                 </div>
                 <div className="w-1/2 p-3 flex flex-col justify-center text-center bg-white">
-                  <span className="text-[10px] font-bold text-slate-500 mb-1 uppercase tracking-wider">Clínica</span>
-                  <span className="text-slate-600 leading-snug">{row.clinic}</span>
+                  <span className="text-[10px] font-bold text-slate-400 mb-1 uppercase tracking-wider">Clínica</span>
+                  <span className="text-slate-500 leading-snug">{row.clinic}</span>
                 </div>
               </div>
             </div>
