@@ -45,7 +45,7 @@ const App: React.FC = () => {
             <span className="truncate">Atendimento Domiciliar em SJC e Jacareí</span>
           </div>
           <a 
-            href="https://wa.me/5512992186161?text=Vim%20da%20página%20e%20quero%20saber%20mais%20sobre%20o%20seu%20atendimento%20para%20AVC."
+            href="https://wa.me/5512992186161?text=Vim%20da%20página%20e%20quero%20saber%20mais%20sobre%20a%20fisioterapia%20domiciliar."
             target="_blank"
             rel="noreferrer"
             className="hidden md:flex items-center gap-2 bg-brand-600 hover:bg-brand-500 px-4 py-1.5 rounded-full text-sm font-bold transition-colors shrink-0"
@@ -98,17 +98,17 @@ const App: React.FC = () => {
             <div className="relative w-[280px] md:w-[400px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-700/50 bg-brand-800">
               <img 
                 src="/perfil-3.webp"
-                srcset="/perfil-3.webp 400w, 
+                srcSet="/perfil-3.webp 400w, 
                         /perfil-3.webp 800w"
-                sizes="(max-width: 768px) 280px, 400px"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 width="400"
                 height="533"
                 loading="eager"
                 decoding="sync"
-                // @ts-ignore
                 fetchPriority="high"
+                style={{ aspectRatio: '400/533', objectFit: 'cover' }}
               />
             </div>
           </div>

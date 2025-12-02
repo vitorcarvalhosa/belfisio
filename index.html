@@ -22,14 +22,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- CRITICAL PRELOAD: Responsive LCP Image Strategy -->
-    <!-- Isso força o navegador a baixar a versão correta da imagem IMEDIATAMENTE -->
     <link 
       rel="preload" 
       as="image" 
       href="/perfil-3.webp"
       imagesrcset="/perfil-3.webp 400w, 
                    /perfil-3.webp 800w"
-      imagesizes="(max-width: 768px) 280px, 400px"
+      imagesizes="(max-width: 768px) 100vw, 50vw"
       fetchpriority="high"
     >
 
@@ -80,8 +79,11 @@
       /* Performance Utils */
       .content-visibility-auto { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
     </style>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Config - Keeping CDN for functionality but styling is handled by inline CSS for critical path -->
+    <!-- Tailwind CSS (Restored) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -93,13 +95,10 @@
                 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#064e3b',
               }
             }
-          },
-        },
+          }
+        }
       }
     </script>
-    
-    <!-- Fonts - Swap strategy to avoid invisible text -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script type="importmap">
 {
@@ -141,7 +140,7 @@
                   src="/perfil-3.webp" 
                   srcset="/perfil-3.webp 400w, 
                           /perfil-3.webp 800w"
-                  sizes="(max-width: 768px) 280px, 400px"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
                   width="400"
                   height="533"

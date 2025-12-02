@@ -281,7 +281,7 @@ const MainContent: React.FC = () => {
               <img 
                 src="/perfil-10.webp" 
                 alt="Fisioterapeuta Izabel Macedo Pós Graduada em Neurologia" 
-                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover"
+                className="w-full h-auto rounded-2xl shadow-2xl border-4 border-white object-cover object-top"
                 loading="lazy"
                 width="400"
                 height="400"
