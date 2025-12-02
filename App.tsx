@@ -106,7 +106,7 @@ const App: React.FC = () => {
                 width="400"
                 height="533"
                 loading="eager"
-                decoding="sync"
+                decoding="async"
                 fetchPriority="high"
                 style={{ aspectRatio: '400/533', objectFit: 'cover' }}
               />
