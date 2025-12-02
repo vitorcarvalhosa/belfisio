@@ -42,7 +42,7 @@ const App: React.FC = () => {
         <div className="max-w-7xl w-full mx-auto flex justify-between items-center">
           <div className="flex items-center gap-2 text-sm md:text-base font-semibold truncate">
             <MapPin size={18} className="text-brand-500 shrink-0" />
-            <span className="truncate">Atendimento Domiciliar em São José dos Campos</span>
+            <span className="truncate">Atendimento Domiciliar em SJC e Jacareí</span>
           </div>
           <a 
             href="https://wa.me/5512992186161?text=Vim%20da%20página%20e%20quero%20saber%20mais%20sobre%20o%20seu%20atendimento%20para%20AVC."
@@ -101,7 +101,7 @@ const App: React.FC = () => {
                 srcset="https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 400w, 
                         https://autovmd-wordpress.7uu36r.easypanel.host/wp-content/uploads/2025/12/Perfil-6.webp 800w"
                 sizes="(max-width: 768px) 280px, 400px"
-                alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos" 
+                alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
                 className="w-full h-full object-cover"
                 width="400"
                 height="533"
