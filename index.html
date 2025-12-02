@@ -90,8 +90,19 @@
       .content-visibility-auto { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
     </style>
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Fonts (Async Loading to Eliminate Render Blocking) -->
+    <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" 
+      as="style" 
+      onload="this.onload=null;this.rel='stylesheet'"
+    >
+    <noscript>
+      <link 
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" 
+        rel="stylesheet"
+      >
+    </noscript>
 
   <script type="importmap">
 {
