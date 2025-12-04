@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+    
     <!-- SEO & Meta -->
     <title>Fisioterapia Domiciliar em SJC e Jacareí - Especialista em AVC | Izabel Macedo</title>
     <meta name="description" content="Fisioterapia domiciliar em São José dos Campos e Jacareí especializada em reabilitação de AVC. Método Reconexão Funcional 5P com Izabel Macedo." />
@@ -17,95 +17,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316a34a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 12h-4l-3 9L9 3l-3 9H2'/%3E%3C/svg%3E" />
     
-    <!-- Resource Hints: Critical for Performance -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- CRITICAL PRELOAD: Responsive LCP Image Strategy -->
-    <link 
-      rel="preload" 
-      as="image" 
-      href="/perfil-3.webp"
-      imagesrcset="/perfil-3.webp 400w, 
-                   /perfil-3.webp 800w"
-      imagesizes="(max-width: 768px) 100vw, 50vw"
-      fetchpriority="high"
-    >
-
-    <!-- Critical CSS: Inline styles for the App Shell (Above the Fold Only) -->
-    <!-- This allows the browser to paint the image BEFORE waiting for Tailwind -->
-    <style>
-      /* Reset & Base */
-      body { background-color: #064e3b; margin: 0; font-family: 'Montserrat', system-ui, sans-serif; overflow-x: hidden; color: #fff; -webkit-font-smoothing: antialiased; }
-      *, *::before, *::after { box-sizing: border-box; }
-      img { max-width: 100%; height: auto; display: block; }
-      
-      /* Header Critical CSS */
-      .c-header { position: fixed; top: 0; width: 100%; height: 60px; background-color: #064e3b; z-index: 50; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; }
-      .c-header-inner { max-width: 80rem; width: 100%; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center; }
-      .c-logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300px; color: #fff; }
-      
-      /* Hero Critical CSS */
-      .c-hero { padding-top: 5rem; padding-bottom: 4rem; background-color: #064e3b; position: relative; }
-      .c-container { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
-      .c-grid { display: flex; flex-direction: column; gap: 2rem; }
-      
-      /* Typography */
-      h1 { font-size: 1.875rem; line-height: 1.25; font-weight: 700; margin: 0 0 1.5rem 0; color: #fff; }
-      .c-pill { background-color: #15803d; color: #dcfce7; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 1.5rem; }
-      .c-desc { font-size: 1.125rem; color: #dcfce7; font-weight: 500; margin-bottom: 1.5rem; line-height: 1.6; }
-      
-      /* Image Container - The LCP Hero */
-      .c-img-wrapper {
-        position: relative;
-        width: 280px; 
-        aspect-ratio: 3/4;
-        margin: 1rem auto;
-        /* Critical: Immediate background color while image loads */
-        background-color: #166534; 
-        border-radius: 1rem;
-        /* Matches React component border exactly */
-        border: 4px solid rgba(21, 128, 61, 0.5);
-        overflow: hidden;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        /* Fade in effect when image loads handled by browser */
-      }
-      
-      .c-img-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        /* Matches Tailwind 'object-top' class */
-        object-position: top;
-      }
-      
-      /* Desktop Media Query */
-      @media (min-width: 768px) {
-        .c-hero { padding-top: 8rem; padding-bottom: 6rem; }
-        .c-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: center; }
-        h1 { font-size: 3rem; }
-        .c-order-1 { order: 1; display: flex; justify-content: flex-end; }
-        .c-order-2 { order: 2; }
-        .c-img-wrapper { width: 400px; margin: 0; }
-      }
-      
-      /* Performance Utils */
-      .content-visibility-auto { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
-    </style>
-    
-    <!-- Fonts (Async Loading to Eliminate Render Blocking) -->
-    <link 
-      rel="preload" 
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" 
-      as="style" 
-      onload="this.onload=null;this.rel='stylesheet'"
-    >
-    <noscript>
-      <link 
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" 
-        rel="stylesheet"
-      >
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script type="importmap">
 {
@@ -118,53 +33,10 @@
 }
 </script>
 </head>
-  <body>    
-    <!-- APP SHELL: Static HTML for Instant FCP (Pre-React) -->
-    <!-- This content appears immediately because we removed render-blocking scripts from head -->
-    <div id="root">
-      <div class="c-header">
-        <div class="c-header-inner">
-          <div class="c-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>Atendimento Domiciliar em SJC e Jacareí</span>
-          </div>
-        </div>
-      </div>
-
-      <section class="c-hero">
-        <div class="c-container">
-          <div class="c-grid">
-            <div class="c-order-2">
-              <span class="c-pill">Especialista em AVC</span>
-              <h1>Recupere a Autonomia do Seu Familiar Sem Precisar Sair de Casa</h1>
-              <p class="c-desc">
-                Fisioterapia domiciliar especializada para quem precisa de resultados reais, com carinho, conforto e profissionalismo.
-              </p>
-            </div>
-            
-            <div class="c-order-1">
-              <div class="c-img-wrapper">
-                <img 
-                  src="/perfil-3.webp" 
-                  srcset="/perfil-3.webp 400w, 
-                          /perfil-3.webp 800w"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  alt="Fisioterapeuta Izabel Macedo Especialista em AVC em São José dos Campos e Jacareí" 
-                  width="400"
-                  height="533"
-                  fetchpriority="high"
-                  decoding="async"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+  <body>
+    <div id="root"></div>
     
-    <!-- Scripts Moved to Bottom to Unblock Rendering -->
-    <!-- Added async to Tailwind to prevent blocking parser/paint -->
-    <script src="https://cdn.tailwindcss.com" async></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {

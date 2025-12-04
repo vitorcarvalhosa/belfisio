@@ -2,7 +2,7 @@ import React from 'react';
 import { MessageCircle, CalendarCheck } from 'lucide-react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'whatsapp';
+  variant?: 'primary' | 'secondary' | 'outline' | 'whatsapp' | 'outlineBrand';
   icon?: 'whatsapp' | 'calendar' | 'none';
   fullWidth?: boolean;
 }
@@ -21,7 +21,8 @@ export const Button: React.FC<ButtonProps> = ({
     primary: "bg-brand-600 hover:bg-brand-500 text-white focus:ring-brand-500 border border-transparent",
     secondary: "bg-white text-brand-800 hover:bg-gray-50 focus:ring-white border border-transparent",
     outline: "bg-transparent border-2 border-white text-white hover:bg-white hover:text-brand-900 focus:ring-white",
-    whatsapp: "bg-[#25D366] hover:bg-[#128C7E] text-white focus:ring-[#25D366] border border-transparent"
+    whatsapp: "bg-[#25D366] hover:bg-[#128C7E] text-white focus:ring-[#25D366] border border-transparent",
+    outlineBrand: "bg-transparent border-2 border-brand-600 text-brand-600 hover:bg-brand-50 focus:ring-brand-500"
   };
 
   const widthStyle = fullWidth ? "w-full" : "";
